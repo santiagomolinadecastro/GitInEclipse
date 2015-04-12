@@ -11,7 +11,23 @@
 int main (){
 
 	char * name = strdup("Santiago");
+	char * surname = strdup(" Molina de Castro");
 
-	printf("Name = %c",*name);
+	printf("First letter of name = %c\n",*name);
+	printf("Second leter of name = %c\n",name[1]);
+
+
+	int lengthOfName = strlen(name)*sizeof(char);
+	int lengthOfSurname = strlen(surname)*sizeof(char);
+
+	strcat(name,surname);
+
+	int pos;
+
+	for (pos = 0; pos < strlen(name); pos++){
+		printf("%c",name[pos]);
+	}
+
+	free(*name);
 
 }
