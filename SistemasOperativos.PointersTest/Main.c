@@ -28,6 +28,7 @@ int main (){
 		printf("%c",name[pos]);
 	}
 
+	free(*surname);
 	free(*name);
 
 }
