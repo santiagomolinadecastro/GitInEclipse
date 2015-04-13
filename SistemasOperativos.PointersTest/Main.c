@@ -10,16 +10,16 @@
 
 int main (){
 
-	char * name = strdup("Santiago");
-	char * surname = strdup(" Molina de Castro\n");
+	char * name = malloc(sizeof(char)*13);
+	char * surname = malloc(sizeof(char)*strlen(" Molina de Castro\n"));
+
+	strcpy(name,"Santiago");
+	strcpy(name," Molina de Castro\n");
 
 	printf("First letter of name = %c\n",*name);
 	printf("Second leter of name = %c\n",name[1]);
 
-
-	int lengthOfName = strlen(name)*sizeof(char);
-	int lengthOfSurname = strlen(surname)*sizeof(char);
-
+	name = (char*)realloc(name,sizeof(char)*strlen(surname));
 	strcat(name,surname);
 
 	int pos;
@@ -27,11 +27,10 @@ int main (){
 	for (pos = 0; pos < strlen(name); pos++){
 		printf("%c",name[pos]);
 	}
-	printf("Liberó memoria correctamente");
 
 	free(surname);
 	free(name);
 
-	printf("Liberó memoria correctamente");
+	return 0;
 
 }
