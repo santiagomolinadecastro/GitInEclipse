@@ -10,17 +10,17 @@
 
 int main (){
 
-	char * name = malloc(sizeof(char)*13);
-	char * surname = malloc(sizeof(char)*strlen(" Molina de Castro\n"));
+	char * name = malloc(sizeof(char)*12);
+	char * surname = malloc(sizeof(char)*(strlen(" Molina de Castro\n")+1));
 
 	strcpy(name,"Santiago");
-	strcpy(name," Molina de Castro\n");
+	strcpy(surname," Molina de Castro\n");
 
 	printf("First letter of name = %c\n",*name);
 	printf("Second leter of name = %c\n",name[1]);
 
-	name = (char*)realloc(name,sizeof(char)*strlen(surname));
-	strcat(name,surname);
+//	name = (char*)realloc(name,sizeof(char)*strlen(surname));
+//	strcat(name,surname);
 
 	int pos;
 
