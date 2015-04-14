@@ -8,6 +8,20 @@
 #include <stdlib.h>
 #include <string.h>
 
+typedef struct {
+	int year;
+	int month;
+	int day;
+}Student;
+
+
+int validateMemoryAllocation(void* variable){
+
+	if (variable == NULL) return 1;
+	else return 0;
+
+}
+
 int main (){
 
 	char * name = malloc(sizeof(char)*12);
@@ -19,8 +33,8 @@ int main (){
 	printf("First letter of name = %c\n",*name);
 	printf("Second leter of name = %c\n",name[1]);
 
-//	name = (char*)realloc(name,sizeof(char)*strlen(surname));
-//	strcat(name,surname);
+	//name = (char*)realloc(name,sizeof(char)*strlen(surname));
+	//strcat(name,surname);
 
 	int pos;
 
@@ -28,9 +42,25 @@ int main (){
 		printf("%c",name[pos]);
 	}
 
-	free(surname);
 	free(name);
+	free(surname);
 
+
+	Student * aStudent = malloc(sizeof(Student));
+
+	if (validateMemoryAllocation(aStudent) == 1) {
+		printf("An error has been ocurred in memory allocation in aStudent local variable.");
+		return 0;
+	}
+
+	aStudent->day = 1;
+	aStudent->year = 2015;
+	aStudent->month = 4;
+
+	printf("Day = %d | Month = %d | Year = %d",aStudent->day,aStudent->month,aStudent->year);
+
+
+	free(aStudent);
 	return 0;
 
 }
